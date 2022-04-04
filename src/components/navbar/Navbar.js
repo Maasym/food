@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {FaHamburger, FaBars} from "react-icons/fa";
+import {FaHamburger, FaBars, FaTimes} from "react-icons/fa";
 
 import './Navbar.css'
 
@@ -7,8 +7,20 @@ const Navbar = () => {
     const [nav, setNav] = useState(false)
     const handleNav = () => setNav(!nav)
 
+    const [color, setColor] = useState(false)
+
+    const changeColor = () => {
+        if(window.scrollY >= 100) {
+            setColor(true)
+        } else {
+            setColor(false)
+        }
+    }
+
+    window.addEventListener('scroll', changeColor)
+
     return(
-      <div className='navbar'>
+        <div className={color ? 'navbar navbar-bg' : 'navbar'}>
         <div className="container">
             <FaHamburger size={40} style={{marginLeft: '4px'}}/>
             <ul className={nav ? 'nav-menu active' : 'nav-menu'}>
@@ -19,7 +31,7 @@ const Navbar = () => {
                 <li>Contact</li>
             </ul>
             <div className="hamburger" onClick={handleNav}>
-                <FaBars />
+                {nav ? (<FaTimes size={20} style={{color: '#ffffff'}}/>) : (<FaBars size={20}/>)}
             </div>
         </div>
       </div>
