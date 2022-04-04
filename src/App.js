@@ -9,6 +9,7 @@ import Craft2 from './assets/craft2.jpg'
 import Chicken from './assets/chicken.jpg'
 import Burger from './assets/burger.jpg'
 import HeroBg from './assets/hero-bg.jpg'
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Food bgImg1={Craft1} bgImg2={Craft2} />
       <Food bgImg={Chicken} />
       <Food bgImg={Burger}/>
+      <Footer />
     </div>
   );
 }
